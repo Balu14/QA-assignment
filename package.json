@@ -1,0 +1,22 @@
+{
+  "name": "ui-testing-assignment",
+  "version": "1.0.0",
+  "description": "Cypress automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Balu14/UI-TESTING-ASSIGNMENT.git"
+  },
+  "author": "Balu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Balu14/UI-TESTING-ASSIGNMENT/issues"
+  },
+  "homepage": "https://github.com/Balu14/UI-TESTING-ASSIGNMENT#readme",
+  "dependencies": {
+    "cypress": "^12.10.0"
+  }
+}
