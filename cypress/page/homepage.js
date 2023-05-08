@@ -10,11 +10,20 @@ nonExistingUser = 'Tester'
 warningMessageLocator = '.notification > h1';
 warningMessage = 'You have entered an incorrect username or password.';
 warningMessageForNoUserAndPassword = 'Please enter your password.';
+signUp = '#signUp';
+name = '#name'
+nameValue = 'Abc'
+email = '#email';
+emailValue = 'abc@gmail.com'
+signUpButton = '#signUpButton';
+apiValue = 'button[value="Api"]'
 
 launchApplication(){
     cy.visit('/');
 }
-
+launchTheMovieDB(){
+    cy.visit('https://www.themoviedb.org/');
+}
 loginToApplication(){
 cy.get(this.username).type(this.usenameValue);
 cy.get(this.password).type(this.passwordValue);
@@ -39,5 +48,20 @@ cy.get(this.warningMessageLocator).then(($ele)=>{
 logOutFromApplication(){
 cy.get(this.dropDown).click();
 cy.get(this.logout).click();
+}
+signUp(){
+cy.get(this.signUp).click();
+cy.get(this.name).type(this.nameValue);
+cy.get(this.email).type(this.emailValue);
+cy.get(this.signUpButton).click();
+}
+getApi(){
+    cy.get(this.apiValue).then(($ele)=>{
+        const value = $ele.text();
+        cy.request('https://www.themoviedb.org/'+ value).then((Response) => {
+            expect(Response.status).to.eq(200);
+            expect(Response.statusText).contains('OK');
+    })
+    })
 }
 }
